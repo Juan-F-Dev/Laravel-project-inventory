@@ -5,7 +5,7 @@
             <div class="flex ">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}" class="text-white font-black text-xl bg-black px-2 py-1 rounded-lg">
+                    <a href="{{ route('dashboard') }}" class="text-white font-black text-xl bg-primary px-2 py-1 rounded-lg">
                         StockTrack
                     </a>
                 </div>
