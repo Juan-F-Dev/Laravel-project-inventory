@@ -12,6 +12,7 @@ Este es un sistema de gestión de inventario desarrollado con Laravel, diseñado
 - Restricciones de acceso basadas en roles: los administradores pueden crear, editar y eliminar productos; los usuarios estándar solo pueden visualizar la lista de productos.
 - Generación de datos de prueba utilizando factories y seeders.
 
+
 ## Requisitos del sistema
 
 - PHP >= 8.1
