@@ -14,16 +14,16 @@
             @if (Route::has('login'))
                 <nav class="flex justify-end p-10 gap-4 font-bold">
                     @auth
-                        <a href="{{ url('/dashboard') }}" class="text-xl border px-4 rounded-lg text-primary">
+                        <a href="{{ url('/dashboard') }}" class="text-xl border px-4 py-1 rounded-lg text-primary">
                             Products
                         </a>
                     @else
-                        <a href="{{ route('login') }}" class="text-xl border px-4 rounded-lg text-primary">
+                        <a href="{{ route('login') }}" class="text-xl border px-4 py-1 rounded-lg text-primary">
                             Log in
                         </a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="text-xl border px-4 rounded-lg text-primary">
+                            <a href="{{ route('register') }}" class="text-xl border px-4 py-1 rounded-lg text-primary">
                                 Register
                             </a>
                         @endif
@@ -37,7 +37,7 @@
                 <div
                     class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
                     <h1 class="text-4xl md:text-5xl font-extrabold text-primary mb-6 leading-tight">
-                        Bienvenido al <span class="">Inventory and Movement System</span>
+                        Welcome to Inventory and Movement System
                     </h1>
                     <p class="mb-8 text-lg text-gray-400">
                         Manage your inventory and movements efficiently and securely with our modern and user-friendly
@@ -55,7 +55,7 @@
                 {{-- Imagen --}}
                 <div class="lg:max-w-3xl lg:w-full md:w-1/2 w-5/6">
                     <img class="object-cover object-center min-w-full" alt="home"
-                        src="{{ asset('build/assets/home.svg') }}">
+                        src="{{ asset('build/home.svg') }}">
                 </div>
             </div>
         </section>

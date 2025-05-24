@@ -16,8 +16,9 @@ export default {
             },
             colors: {
                 primary: "#003dfd",
-                primaryligth: "#2b7fff",
-                newgray: "#374151",
+                ligth: "#2b7fff",
+                new_gray: "#374151",
+                white: '#f3f4f6'
             },
         },
     },
