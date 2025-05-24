@@ -1,9 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Http\Requests\CreateProductRequest;
-use App\Http\Requests\UpdateProductRequest;
+use App\Http\Requests\products\CreateProductRequest;
+use App\Http\Requests\products\UpdateProductRequest;
 use App\Models\Product;
 use App\Services\Product\ProductService;
 
