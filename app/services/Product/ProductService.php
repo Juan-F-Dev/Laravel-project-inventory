@@ -2,6 +2,7 @@
 
 namespace App\Services\Product;
 use App\Models\Product;
+use Auth;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 
