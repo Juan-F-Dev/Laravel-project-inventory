@@ -1,6 +1,6 @@
 <x-app-layout>
   <x-slot name="header">
-    <h2 class="font-bold text-3xl text-gray-800 leading-tight pt-10">
+    <h2 class="font-black uppercase text-3xl text-gray-800 leading-tight pt-10">
       Products
     </h2>
     @if (Auth::user()->isAdmin())
@@ -16,7 +16,7 @@
       <div class=" overflow-hidden shadow-md sm:rounded-lg mx-5 sm:mx-auto">
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
           <table class="w-full text-sm text-left rtl:text-right text-gray-500">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-100">
+            <thead class="text-xs text-white uppercase bg-gray-600">
               <tr class="*:font-bold">
                 <th scope="col" class="px-6 py-3">Code</th>
                 <th scope="col" class="px-6 py-3">Name</th>
