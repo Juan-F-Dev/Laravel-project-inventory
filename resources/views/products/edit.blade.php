@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
     <section >
-        <div class="px-4 py-8 md:p-0 ">
+        <div class="px-4 py-8 ">
             <form action="{{ route("products.update", $product) }}" method="POST"
                 class="max-w-7xl m-auto bg-white shadow-xl p-10 rounded-lg">
                 @include("products._form", ['product' => $product])
