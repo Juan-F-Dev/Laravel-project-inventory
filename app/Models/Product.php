@@ -10,7 +10,7 @@ class Product extends Model
 {
 
     use HasFactory;
-    public const PAGINATE = 10;
+    public const PAGINATE = 5;
 
     protected $fillable = [
         'code',

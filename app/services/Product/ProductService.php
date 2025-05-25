@@ -15,9 +15,17 @@ class ProductService
         return $query->paginate(Product::PAGINATE);
     }
 
-    public function store(array $data): Product
+    public function store(array $data)
     {
-        return Product::create($data);
+        $product = new Product();
+        $product->code = 'PRD_' . $data["code"];
+        $product->name = $data["name"];
+        $product->ammount = $data["ammount"];
+        $product->unit = $data["unit"];
+        $product->price = $data["price"];
+
+
+        return $product->save();
     }
 
     public function update(int $id, array $data): bool
