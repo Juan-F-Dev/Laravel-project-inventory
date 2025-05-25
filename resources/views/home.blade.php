@@ -9,7 +9,7 @@
 </head>
 
 <body class="min-h-screen w-full">
-  <div class="relative h-screen w-screen">
+  <div class="absolute h-screen w-screen -z-10">
     <svg class="absolute -z-10 -top-10 opacity-20 " width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'>
       <defs>
         <pattern id='a' patternUnits='userSpaceOnUse' width='20' height='20'
@@ -27,16 +27,16 @@
       @if (Route::has('login'))
         <nav class="flex justify-end p-10 gap-4 font-bold">
           @auth
-            <a href="{{ url('/dashboard') }}" class="text-xl border px-4 py-1 rounded-lg text-primary">
+            <a href="{{ url('/dashboard') }}" class="text-xl border px-4 py-1 rounded-lg bg-[#fff] text-primary">
               Products
             </a>
           @else
-            <a href="{{ route('login') }}" class="text-xl border px-4 py-1 rounded-lg text-primary">
+            <a href="{{ route('login') }}" class="text-xl border px-4 py-1 rounded-lg bg-[#fff] text-primary">
               Log in
             </a>
 
             @if (Route::has('register'))
-              <a href="{{ route('register') }}" class="text-xl border px-4 py-1 rounded-lg text-primary">
+              <a href="{{ route('register') }}" class="text-xl border px-4 py-1 rounded-lg bg-[#fff] text-primary">
                 Register
               </a>
             @endif
