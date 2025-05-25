@@ -22,7 +22,7 @@ class ProductFactory extends Factory
             'name' => $this->faker->word,
             'ammount' => $this->faker->randomNumber(2),
             'unit' => $this->faker->randomElement(['und', 'lbs', 'kg']),
-            'price' => $this->faker->randomFloat(2,0,0),
+            'price' => $this->faker->randomFloat(2, 0, 1000000),
         ];
     }
 }
