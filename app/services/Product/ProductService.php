@@ -4,6 +4,7 @@ namespace App\Services\Product;
 use App\Models\Product;
 use Auth;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Log;
 
 
 class ProductService
@@ -24,14 +25,25 @@ class ProductService
         $product->unit = $data["unit"];
         $product->price = $data["price"];
 
+        try {
+            $created = $product->save();
+        } catch (\Throwable $th) {
+            $created = false;
+            Log::error($th->getMessage());
+        }
 
-        return $product->save();
+        if ($created) session()->flash('success', 'Product created successfully');
+
+        return $created;
     }
 
     public function update(int $id, array $data): bool
     {
         $product = Product::findOrFail($id);
-        return $product->update($data);
+        $product->code = 'PRD_'. $data['code'];
+        $created = $product->update();
+
+        return $created;
 
     }
 }

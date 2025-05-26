@@ -80,11 +80,12 @@
                 </tr>
               @endforeach
             </tbody>
+
           </table>
         </div>
       </div>
       <div class="py-5">
-          {{ $products->links() }}
+        {{ $products->links() }}
       </div>
     </div>
   </div>

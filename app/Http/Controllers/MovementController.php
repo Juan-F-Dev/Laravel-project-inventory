@@ -2,17 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Movements\CreateMovementRequest;
+use App\Http\Requests\Movements\UpdateMovementRequest;
 use App\Models\Movement;
-use Illuminate\Http\Request;
+use App\Services\Movement\MovementService;
 
 class MovementController extends Controller
 {
+
+    public function __construct(protected MovementService $service)
+    {
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('movements.index');
+        $movements = $this->service->getAll();
+        return view('movements.index', compact('movements'));
     }
 
     /**
@@ -20,23 +28,18 @@ class MovementController extends Controller
      */
     public function create()
     {
-        //
+        $movement = new Movement;
+        return view('movements.create', compact(['movement']));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CreateMovementRequest $request)
     {
-        //
-    }
+        $this->service->store($request->validated());
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Movement $movement)
-    {
-        //
+        return redirect()->route('movements.index')->with('success', 'Movement Created Succesfull');
     }
 
     /**
@@ -50,7 +53,7 @@ class MovementController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Movement $movement)
+    public function update(UpdateMovementRequest $request, Movement $movement)
     {
         //
     }

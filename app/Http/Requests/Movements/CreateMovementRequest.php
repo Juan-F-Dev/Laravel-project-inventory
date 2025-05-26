@@ -1,9 +1,10 @@
 <?php
-namespace App\Http\Requests\Products;
+
+namespace App\Http\Requests\Movements;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateProductRequest extends FormRequest
+class CreateMovementRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,11 +22,10 @@ class UpdateProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'code' => 'required|string',
-            'name' => 'required|string|max:255',
-            'ammount' => 'required|numeric|min:0',
-            'unit' => 'required|in:und,kg,L,m,doc',
-            'price' => 'required|numeric|min:0',
+            'type' => 'required|string|max:20',
+            'ammount' => 'required|numeric',
+            'sale_point' => 'required|string|max:20',
+            'product_id' => 'required|exists:products,id',
         ];
     }
 }

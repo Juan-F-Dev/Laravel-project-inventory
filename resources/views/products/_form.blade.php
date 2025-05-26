@@ -8,8 +8,9 @@
       </label>
       <div class="flex gap-1">
         <input class="w-full rounded-l-xl max-w-20 text-gray-400 border-gray-400" type="text" value="PRD_" disabled />
-        <input type="text" name="code" id="code" value="{{ old('code', $product->code ?? '') }}"
-          class="w-full rounded-r-xl" placeholder="product Code" required="" value="" />
+        <input type="text" name="code" id="code"
+          value="{{ old('code', explode('_', $product->code)[1] ?? '') }}" class="w-full rounded-r-xl"
+          placeholder="product Code" required="" value="" />
       </div>
     </div>
     <div class="w-full">
