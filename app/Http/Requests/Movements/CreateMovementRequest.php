@@ -23,7 +23,7 @@ class CreateMovementRequest extends FormRequest
     {
         return [
             'type' => 'required|string|max:20',
-            'ammount' => 'required|numeric',
+            'amount' => 'required|numeric',
             'sale_point' => 'required|string|max:20',
             'product_id' => 'required|exists:products,id',
         ];

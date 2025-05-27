@@ -13,7 +13,7 @@ class Movement extends Model
     public const PAGINATE = 10;
     public $fillable = [
         'type',
-        'ammount',
+        'amount',
         'sale_point',
         'product_id'
 

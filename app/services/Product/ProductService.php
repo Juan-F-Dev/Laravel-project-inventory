@@ -21,7 +21,7 @@ class ProductService
         $product = new Product();
         $product->code = 'PRD_' . $data["code"];
         $product->name = $data["name"];
-        $product->ammount = $data["ammount"];
+        $product->amount = $data["amount"];
         $product->unit = $data["unit"];
         $product->price = $data["price"];
 

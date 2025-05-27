@@ -20,7 +20,7 @@ class ProductFactory extends Factory
         return [
             'code' => 'PRD_' . $this->faker->numerify('#######'),
             'name' => $this->faker->words(2, true),
-            'ammount' => $this->faker->randomNumber(1),
+            'amount' => $this->faker->randomNumber(1),
             'unit' => $this->faker->randomElement(['und', 'lbs', 'kg']),
             'price' => $this->faker->randomFloat(2, 0, 1000000),
         ];

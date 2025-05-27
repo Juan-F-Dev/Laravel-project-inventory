@@ -23,11 +23,11 @@
   </div>
   <div class="w-full flex flex-col sm:flex-row gap-3 sm:gap-y-0 gap-y-3">
     <div class="w-full">
-      <label for="ammount" class=" block text-sm font-medium text-gray-900 ">
-        Ammount
+    <label for="amount" class=" block text-sm font-medium text-gray-900 ">
+        amount
       </label>
-      <input type="number" name="ammount" id="ammount" value="{{ old('ammount', $product->ammount ?? '') }}"
-        class="w-full rounded-xl" placeholder="Product Ammount" required="" />
+    <input type="number" name="amount" id="amount" value="{{ old('amount', $product->amount ?? '') }}"
+        class="w-full rounded-xl" placeholder="Product amount" required="" />
     </div>
     <div class="w-full">
       <label for="price" class=" block text-sm font-medium text-gray-900 ">
@@ -42,7 +42,7 @@
     <label for="unit" class=" block text-sm font-medium text-gray-900 ">
       Unit
     </label>
-    <select id="unit" name="unit" class="w-full rounded-xl">
+    <select id="unit" name="unit" class="w-full rounded-xl" required>
       <option disabled selected="">Select Unit</option>
       <option value="und" {{ old('unit', $product->unit) == 'und' ? 'selected' : '' }}>unit (und)</option>
       <option value="lbs" {{ old('unit', $product->unit) == 'lbs' ? 'selected' : '' }}>pounds (lbs)</option>

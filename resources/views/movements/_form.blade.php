@@ -28,11 +28,11 @@
             </select>
         </div>
         <div class="w-full">
-            <label for="ammount" class=" block text-sm font-medium text-gray-900 ">
-                Ammount
+            <label for="amount" class=" block text-sm font-medium text-gray-900 ">
+                amount
             </label>
-            <input type="number" name="ammount" id="ammount" value="{{ old('ammount', $movement->ammount ?? '') }}"
-                class="w-full rounded-xl" placeholder="Movement Ammount" required />
+            <input type="number" name="amount" id="amount" value="{{ old('amount', $movement->amount ?? '') }}"
+                class="w-full rounded-xl" placeholder="Movement amount" required />
         </div>
     </div>
 </div>

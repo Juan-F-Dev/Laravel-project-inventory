@@ -23,7 +23,7 @@ class UpdateProductRequest extends FormRequest
         return [
             'code' => 'required|string',
             'name' => 'required|string|max:255',
-            'ammount' => 'required|numeric|min:0',
+            'amount' => 'required|numeric|min:0',
             'unit' => 'required|in:und,kg,L,m,doc',
             'price' => 'required|numeric|min:0',
         ];
