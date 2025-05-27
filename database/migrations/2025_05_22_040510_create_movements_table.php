@@ -10,7 +10,7 @@ return new class extends Migration {
         Schema::create('movements', function (Blueprint $table) {
             $table->id();
             $table->string('type', 20);
-            $table->double('ammount');
+            $table->double('amount');
             $table->string('sale_point', 20);
             //Declaracion Foranea
             $table->foreignId('product_id')->constrained()->onDelete('cascade');

@@ -19,15 +19,12 @@ public function __construct(protected ProductService $service) {}
 
     public function create()
     {
-        $product = new Product();
-        return view('products.create', compact(['product']));
+        return view('products.create', ['product' => new Product()]);
     }
 
     public function store(CreateProductRequest $request)
     {
         $created = $this->service->store($request->validated());
-        if ($created) { session()->flash('success', 'Product created successfully'); }
-
         return  redirect()->route('products.index');
     }
 
