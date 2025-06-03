@@ -1,96 +1,84 @@
+# Sistema de Inventario - Laravel
 
-# Laravel Project Inventory
+Este proyecto es un sistema profesional de gestión de inventario desarrollado con Laravel y Livewire. Permite administrar productos, movimientos de inventario (ventas, reposiciones, devoluciones), puntos de venta y usuarios, todo a través de una interfaz moderna y responsiva.
 
-Este es un sistema de gestión de inventario desarrollado con Laravel, diseñado para administrar productos con roles de usuario diferenciados (administrador y usuario estándar).
+## Características principales
 
-## Características
+- **Gestión de productos:** Alta, baja, modificación y búsqueda rápida de productos.
+- **Movimientos de inventario:** Registro de ventas, reposiciones y devoluciones con resumen dinámico en tiempo real.
+- **Puntos de venta:** Selección y control de diferentes puntos de venta.
+- **Interfaz intuitiva:** UI moderna con Tailwind CSS y componentes Livewire para experiencia reactiva.
+- **Validaciones robustas:** Validación de datos tanto en frontend como backend.
+- **Resumen en tiempo real:** Visualización instantánea del resumen del movimiento antes de guardar.
+- **Autenticación y roles:** (Opcional) Soporte para usuarios y roles.
 
-- Autenticación y registro de usuarios utilizando Laravel Breeze.
-- Roles de usuario: administrador y usuario estándar.
-- CRUD de productos con campos como código, nombre, cantidad, unidad y precio.
-- Paginación de la lista de productos.
-- Restricciones de acceso basadas en roles: los administradores pueden crear, editar y eliminar productos; los usuarios estándar solo pueden visualizar la lista de productos.
-- Generación de datos de prueba utilizando factories y seeders.
-
-
-## Requisitos del sistema
+## Requisitos
 
 - PHP >= 8.1
 - Composer
 - Node.js y npm
-- Base de datos compatible (MySQL, PostgreSQL, etc.)
+- SQLite (por defecto) o cualquier base de datos soportada por Laravel
 
 ## Instalación
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/Juan-F-Dev/Laravel-project-inventory.git
-   cd Laravel-project-inventory
+   git clone <url-del-repositorio>
+   cd project_inventory
    ```
-
 2. Instala las dependencias de PHP:
    ```bash
    composer install
    ```
-
-3. Instala las dependencias de JavaScript:
+3. Instala las dependencias de Node.js:
    ```bash
-   npm install
+   npm install && npm run build
    ```
-
-4. Copia el archivo de ejemplo de entorno y configura las variables necesarias:
+4. Copia el archivo de entorno y configura tus variables:
    ```bash
    cp .env.example .env
-   ```
-   Edita el archivo `.env` para configurar la conexión a la base de datos y otras variables de entorno.
-
-5. Genera la clave de la aplicación:
-   ```bash
    php artisan key:generate
    ```
-
-6. Ejecuta las migraciones y seeders para preparar la base de datos:
-   ```bash
-   php artisan migrate:fresh --seed
+5. Configura la base de datos en `.env` (por defecto usa SQLite):
+   ```env
+   DB_CONNECTION=sqlite
+   DB_DATABASE=./database/database.sqlite
    ```
-
-7. Compila los assets del frontend:
+6. Ejecuta las migraciones y seeders:
    ```bash
-   npm run dev
+   php artisan migrate --seed
    ```
-
-8. Inicia el servidor de desarrollo:
+7. Inicia el servidor de desarrollo:
    ```bash
    php artisan serve
    ```
 
-   La aplicación estará disponible en `http://localhost:8000`.
-
 ## Uso
 
-- Regístrate como nuevo usuario o inicia sesión con las credenciales proporcionadas por el seeder.
-- Los administradores pueden crear, editar y eliminar productos.
-- Los usuarios estándar solo pueden visualizar la lista de productos.
+- Accede a la aplicación en [http://localhost:8000](http://localhost:8000)
+- Navega por el dashboard, administra productos y registra movimientos.
+- El resumen de cada movimiento se actualiza automáticamente al modificar cualquier campo del formulario.
 
-## Estructura del proyecto
+## Estructura principal
 
-- `app/Models`: Modelos Eloquent.
-- `app/Http/Controllers`: Controladores de la aplicación.
-- `database/migrations`: Migraciones de la base de datos.
-- `database/seeders`: Seeders para poblar la base de datos con datos de prueba.
-- `resources/views`: Vistas Blade.
-- `routes/web.php`: Definición de rutas web.
+- `app/Models/` - Modelos Eloquent (Product, Movement, User)
+- `app/Http/Controllers/` - Controladores principales
+- `app/Livewire/` - Componentes Livewire para formularios y vistas reactivas
+- `resources/views/` - Vistas Blade y Livewire
+- `database/` - Migraciones, seeders y base de datos SQLite
 
-## Contribuciones
+## Tecnologías utilizadas
 
-¡Las contribuciones son bienvenidas! Si deseas mejorar este proyecto, por favor sigue estos pasos:
+- Laravel 10+
+- Livewire
+- Tailwind CSS
+- Vite
+- Alpine.js (opcional)
 
-1. Haz un fork del repositorio.
-2. Crea una nueva rama para tu funcionalidad: `git checkout -b nueva-funcionalidad`.
-3. Realiza tus cambios y haz commit: `git commit -m 'Agrega nueva funcionalidad'`.
-4. Haz push a tu rama: `git push origin nueva-funcionalidad`.
-5. Abre un Pull Request.
+## Contribución
+
+Las contribuciones son bienvenidas. Por favor, abre un issue o pull request para sugerencias o mejoras.
 
 ## Licencia
 
-Este proyecto está bajo la licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
+Este proyecto está bajo la licencia MIT.
