@@ -48,12 +48,22 @@ class MovementService
             $product = Product::findOrFail($data['product_id']);
 
             // ? Modification to the property amount of the product
-            match ($movement->type) {
-                Movement::MOVEMENT_TYPE_RESTOCK,
-                Movement::MOVEMENT_TYPE_RETURN => $product->increment('amount', $movement->amount),
+            switch ($movement->type) {
+                case Movement::MOVEMENT_TYPE_RESTOCK:
+                case Movement::MOVEMENT_TYPE_RETURN:
+                    $product->increment('amount', $movement->amount);
+                    break;
+                case Movement::MOVEMENT_TYPE_SALE:
+                    if ($product->amount < $movement->amount) {
+                        throw new Exception('Insufficient stocks');
+                    }
+                    $product->decrement('amount', $movement->amount);
+                    break;
+                default:
+                    # code...
+                    break;
+            }
 
-                Movement::MOVEMENT_TYPE_SALE => $product->decrement('amount', $movement->amount) ?: throw new Exception('insufficient stocks'),
-            };
 
             // ? commit to the database
             DB::commit();
@@ -62,9 +72,7 @@ class MovementService
             // ?
             DB::rollBack();
             Log::error('Failed movement' . $th->getMessage());
-            return redirect()->back()->with('error' . $th->getMessage());
+            throw $th;
         }
-
-        return redirect()->route('movements.index')->with('success','successfully created movement');
     }
 }

@@ -5,11 +5,14 @@ use App\Http\Requests\products\CreateProductRequest;
 use App\Http\Requests\products\UpdateProductRequest;
 use App\Models\Product;
 use App\Services\Product\ProductService;
+use NumberFormatter;
 
 class ProductController extends Controller
 {
 
-public function __construct(protected ProductService $service) {}
+    public function __construct(protected ProductService $service)
+    {
+    }
 
     public function index()
     {
@@ -25,7 +28,7 @@ public function __construct(protected ProductService $service) {}
     public function store(CreateProductRequest $request)
     {
         $created = $this->service->store($request->validated());
-        return  redirect()->route('products.index');
+        return redirect()->route('products.index');
     }
 
     public function edit(Product $product)
@@ -36,7 +39,9 @@ public function __construct(protected ProductService $service) {}
     public function update(UpdateProductRequest $request, Product $product)
     {
         $updated = $this->service->update($product->id, $request->validated());
-        if ($updated) { session()->flash('success', 'Product updated successfully'); }
+        if ($updated) {
+            session()->flash('success', 'Product updated successfully');
+        }
         return redirect()->route('products.index', compact(['updated']));
     }
 

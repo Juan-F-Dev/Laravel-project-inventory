@@ -37,32 +37,13 @@ class MovementController extends Controller
      */
     public function store(CreateMovementRequest $request)
     {
-        $this->service->store($request->validated());
 
-        return redirect()->route('movements.index')->with('success', 'Movement Created Succesfull');
-    }
+        try {
+            $this->service->store($request->validated());
+            return redirect()->route('movements.index')->with('success', 'Movement Created Succesfull');
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', $th->getMessage())->withInput();
+        }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Movement $movement)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateMovementRequest $request, Movement $movement)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Movement $movement)
-    {
-        //
     }
 }
